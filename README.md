@@ -1,5 +1,5 @@
 # cdcdemo
-This project is a simple test of CDC design pattern using Hibernate listeners and Observes bean
+This project is a simple test of CDC design pattern using Observes
 
 This project uses Quarkus, the Supersonic Subatomic Java Framework.
 
