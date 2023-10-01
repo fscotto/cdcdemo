@@ -14,10 +14,10 @@ import java.util.stream.Collectors;
 public class UserService {
     private final Logger log = Logger.getLogger(UserService.class);
 
-    private final Event<CollectEvent> collectEventSender;
+    private final Event<Suspendable> collectEventSender;
 
     @Inject
-    public UserService(Event<CollectEvent> collectEventSender) {
+    public UserService(Event<Suspendable> collectEventSender) {
         this.collectEventSender = collectEventSender;
     }
 

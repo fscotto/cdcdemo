@@ -10,11 +10,11 @@ public class UserObserver {
     private final Logger log = Logger.getLogger(UserObserver.class);
 
     public void onCreation(@Observes(during = TransactionPhase.AFTER_SUCCESS) UserCreated event) {
-        log.info("Arrived event for user " + event.getUsername());
+        log.info("Send event for user " + event);
     }
 
     public void onDelete(@Observes(during = TransactionPhase.AFTER_SUCCESS) UserDeleted event) {
-        log.info("Arrived event for deletion user " + event.getId());
+        log.info("Send event for deletion user " + event);
     }
 
 }

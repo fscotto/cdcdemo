@@ -3,7 +3,7 @@ package org.acme;
 import java.time.LocalDateTime;
 import java.util.Objects;
 
-public class UserCreated implements CollectEvent {
+public class UserCreated implements Suspendable {
     private String username;
     private LocalDateTime timestamp;
 
@@ -21,11 +21,6 @@ public class UserCreated implements CollectEvent {
 
     public void setTimestamp(LocalDateTime timestamp) {
         this.timestamp = timestamp;
-    }
-
-    @Override
-    public CollectEvent.Type getType() {
-        return Type.CREATION;
     }
 
     @Override
