@@ -14,11 +14,11 @@ import java.util.stream.Collectors;
 public class UserService {
     private final Logger log = Logger.getLogger(UserService.class);
 
-    private final Event<Suspendable> collectEventSender;
+    private final Event<Suspendable> suspendableEventCollector;
 
     @Inject
-    public UserService(Event<Suspendable> collectEventSender) {
-        this.collectEventSender = collectEventSender;
+    public UserService(Event<Suspendable> suspendableEventCollector) {
+        this.suspendableEventCollector = suspendableEventCollector;
     }
 
     public Collection<UserDTO> getUsers() {
@@ -43,7 +43,7 @@ public class UserService {
         userCreated.setUsername(userEntity.getName());
         userCreated.setTimestamp(LocalDateTime.now());
         log.info("Creation event fired");
-        collectEventSender.fire(userCreated);
+        suspendableEventCollector.fire(userCreated);
 
         User.persist(userEntity);
         log.info("Created user " + user.getName());
@@ -55,7 +55,7 @@ public class UserService {
         userDeleted.setId(id);
         userDeleted.setTimestamp(LocalDateTime.now());
         log.info("Delete event fired");
-        collectEventSender.fire(userDeleted);
+        suspendableEventCollector.fire(userDeleted);
 
         User.deleteById(id);
         log.info("Deleted user with id " + id);
