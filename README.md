@@ -1,5 +1,6 @@
-# cdcdemo
-This project is a simple test of CDC design pattern using Observes
+# Change Data Capture Pattern Demo
+
+This project is a simple test of CDC design pattern using Observes.
 
 This project uses Quarkus, the Supersonic Subatomic Java Framework.
 
